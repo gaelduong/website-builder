@@ -1,0 +1,50 @@
+
+const contents = [
+  FULL_IMG,
+  // HALF_IMG,
+  // SMALL_IMG,
+  FULL_IMG_H_LP,
+  FULL_IMG_H_SP_CTA,
+  H_LP,
+  H_LP_CTA,
+  H_P_H_P,
+  ICON_H_LP,
+  ICON_H_P_ICON_H_P,
+  TAG_H_LP
+]
+
+const excludeMap = {
+  1: [FULL_IMG_H_LP, FULL_IMG_H_SP_CTA],
+  2: [],
+  3: [H_P_H_P, TAG_H_LP, ICON_H_P_ICON_H_P],
+  4: [H_P_H_P, TAG_H_LP, ICON_H_P_ICON_H_P],
+  5: contents.filter(content => content != FULL_IMG),
+  6: contents.filter(content => content != FULL_IMG)
+}
+
+const excludeArray = (array: any[], toRemove: any[]) => {
+  const toRemoveSet = new Set(toRemove)
+  return array.filter(x => !toRemoveSet.has(x))
+}
+
+  // const currContents = excludeArray(contents, excludeMap[col])
+
+  // const [i, setI] = useState(Math.floor(Math.random() * currContents.length))
+
+
+
+   {/* <Section col={2} contentIds={[0, 4]} />
+      <Section col={2} contentIds={[4, 0]} />
+      <Section col={3} contentIds={[6, 6, 6, 6]} />
+      <Section col={2} contentIds={[0, 5]} />
+
+      <Section col={4} contentIds={[8, 8, 8, 8]} />
+      <Section col={2} contentIds={[5, 4]} />
+      <Section col={2} contentIds={[4, 2]} />
+      <Section col={3} contentIds={[2, 2, 2]} />
+
+      <Section col={2} contentIds={[8, 8]} /> */}
+
+      {/* <Section col={5} /> */}
+
+      {/* <LastCTA /> */}

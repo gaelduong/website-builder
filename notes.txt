@@ -1,0 +1,400 @@
+Typography
+- font family
+- font size
+
+
+
+
+2-col
+
+Hero
+div
+    div
+
+
+    div
+
+
+shared values:
+- max width container
+- each section has py-value, this py-value should ideally be the same for each section
+- each section also has px-value, this is to prevent content to touch edges on smaller screen
+- on smaller screen, change:
+    - flex direction
+    - shrink, grow, max-width -> determines how many items on 1 row
+    - text size (headers, p?)
+    - img size
+    - px of section's container (reduce px on small screens )
+    - gap (for both row, col)
+- x-col:
+    - flex-direction
+    - grow-[0], shrink-[0], basis-[~1/x]
+    - gap
+
+
+responsive
+    mobile (default)
+    at sm
+    at md
+    at lg
+
+
+responsive x-col section:
+
+section: py-v
+    container: max-w mx-auto px-v1 md:px-[v2]
+        flex-container: flex flex-wrap flex-col md:flex-row gap-v
+            flex-item: shrink grow md:max-w-[calc(x%-gap)] lg:max-w-[calc(y%-gap)]
+
+
+
+
+
+<section className="py-20">
+    <div suppressHydrationWarning className="max-w-screen-lg mx-auto px-4 md:px-8">
+        <div suppressHydrationWarning className="flex flex-wrap flex-col md:flex-row gap-8 ">
+            <div suppressHydrationWarning className="shrink grow md:max-w-[calc(50%-2rem)] lg:max-w-[calc(33.3%-2rem)] ">
+            (item's content)
+            </div>
+        </div>
+    </div>
+</section>
+
+<section className="py-20">
+    <div suppressHydrationWarning className="max-w-screen-lg mx-auto px-4 md:px-8">
+        <div suppressHydrationWarning className="flex flex-wrap flex-col md:flex-row gap-8 ">
+            <div suppressHydrationWarning className="shrink grow md:max-w-[calc(50%-2rem)] ">
+            (item's content)
+            </div>
+        </div>
+    </div>
+</section>
+
+
+sectionPy = 'py-20'
+maxContainerWidth = 'max-w-screen-lg'
+containerSpaceY
+containerPx = 'px-4 md:px-8'
+flexDirectionConfigs = [{md: row, lg: row}]
+itemsGap = 'gap-8'
+itemColsConfig = [{mobile: 100%}, {md: 50%-2rem}, {lg: 33.3%-2rem}]
+
+<section className={sectionPy}>
+    <div suppressHydrationWarning className={${maxContainerWidth} mx-auto ${containerPx} ${containerSpaceY}">
+        <div suppressHydrationWarning className={flex flex-wrap flex-col md:flex-row ${itemsGap}} [items-center]>
+            <div suppressHydrationWarning className="itemColsConfig">
+            (item's content)
+            </div>
+            <div suppressHydrationWarning className="itemColsConfig">
+            (item's content)
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+all the font size must be consistent across screen sizes:
+- if header 1 in section decreases, 
+    header 1 in section 2 should also decrease
+
+can also modify/add breakpoints
+
+what about section headers?
+
+
+tricks/creativity:
+use stripe svg arrow - cool looking
+tilted section line
+
+
+
+
+shared same values:
+- sectionPy
+- maxContainerWidth
+- containerPx
+- h1, h2, h3 same for all pages
+- py(h1-paragraph), py(h2-p), py(h3-p) same
+- same h2-subheading style
+
+
+
+
+same section headings:
+<div suppressHydrationWarning className=" max-w-screen-md space-y-4">
+    <h2 className="text-3xl font-bold text-gray-700 ">
+    What Our Customers Are Saying
+    </h2>
+    <p suppressHydrationWarning className="mt-4 text-lg text-gray-500 ">
+    We have successfully served various clients with great results.
+    </p>
+</div>
+
+h1 text-4xl
+h2 text-3xl
+h3 text-2xl
+
+
+
+SectionContainer
+    <section className="bg-gray-100 py-8">
+      <div suppressHydrationWarning className="max-w-screen-lg mx-auto px-4 md:px-8">
+
+
+XCol
+
+input:
+    items
+    widthConfigs
+
+
+
+Landing page inputs:
+
+2 col
+3 col
+4 col
+1 col
+
+[x][x]
+[x][x][x]
+[x][x][x][x]
+[x]
+
+<Section col={2}/>
+<Section col={3}/>
+
+
+Other layouts:
+Flex center, unfull width
+
+
+Hero contents:
+Header
+paragraph   IMG
+CTA
+
+    Header
+    subheading
+    CTA
+
+Header
+paragraph   (bg img)
+CTA
+
+-------------------
+Body contents:
+Header
+Paragraph
+CTA
+
+Header
+Paragraph
+
+tag
+Header
+Paragraph
+
+Full Image
+
+Custom size Image
+
+Image [small image on top]
+
+Image/icon
+Header
+Paragraph
+
+Image
+paragraph
+link
+(blog card)
+
+Header
+Paragraph
+Header
+Paragraph
+
+
+icon header
+     paragraph
+icon header
+     paragraph
+icon header
+     paragraph
+
+
+paragraph
+image
+
+
+A simple big header
+
+
+local variants:
+- length of paragraph
+- img size: 
+    icon (cookie, house, cup, growth,...)
+    full size (illustrations, full img)
+    custom size
+- card effect (border-radius, bg, shadown)
+- colored bold certain texts, keywords
+
+
+
+
+global variants:
+- color theme (light, dark colors)
+- max width
+- font style (family, italic, curly,..)
+- p font sizes
+- headings font sizes (colors too)
+    e.g page1: tag: xl, h1: 4xl, h2:3xl, h3:2xl
+        page2: tag: lg, h1: 5xl, h2: 4xl, h3: 3xl
+- background colors
+- cta styles
+    - ctaText ->
+    - [ctaText]
+- visual effects
+    (tilted line after each section)
+    visual lines before Headers
+    background gradients
+- btn styles
+
+
+
+
+Some key factors make a page look good:
+- not a lot of texts
+- repetition of same format, style 
+    (e.g one content may look awkward but repeating them make them look good)
+    dont want a mess of things
+- 2 col can have different contents (e.g img - txt)
+- 3 col advised to have same content
+    - except a few (img-(h-p-cta)-img)
+- >= 5 cols usually are logos (e.g partners)
+    => set contents-col map
+- choose great illustrations
+- choose good colors combo
+- when generating a page, it should be one subject
+    sushi restaurant
+    travel
+- page should have same colors for all items
+- icons: https://remixicon.com/
+
+https://www.youtube.com/watch?v=HW1zt2EPMqY
+
+
+todo
+- implement generate layouts?
+    2-3-4-... 
+- implement global variants
+- implement local variants
+- fix hydration error
+- fix issue styles not applied
+
+
+
+
+2-col
+    IMG - H-P-
+
+
+text length depends on col
+e.g:
+    2 col -> ICON_LP -> LONGER PARAGRAPH
+
+
+gv: a,b,c,d
+
+1 1 1
+3 4
+4 3
+2
+
+2 4
+4 2
+3 3 3
+3
+
+4
+4
+4
+2 5
+5 2
+2 5
+1 2 2
+
+
+2-col
+    0 4
+    4 0
+
+    0 5
+
+
+Hero
+    c1 12
+    c2 12,0
+    c2 0, 12
+    c1 13
+
+
+
+Section
+    Content Content...
+
+
+Nav
+Generate random
+
+OR
+
+Select content:
+    Pokemon
+    Furniture
+
+Randomize layout
+
+
+
+go together:
+- colors
+
+
+globalConfig:
+- max width
+- topic
+- 1stcolor, 2ndcolor
+- button style
+    radius
+    shadow
+    padding
+    ...
+- text style
+    font size
+    font family
+    - headings style
+    - p
+
+
+
+h1 getTextStyles().h1
+h2 getTextStyles().h2
+
+section 
+
+
+
+- generate sections
+- issue broken string for flex classes in Section
+- [x] buttons on nav
+- states:
+    - global styles
+    - subject
+    - layout config
+- add more styles
+- local styles
+- minor: hero img height, lorem
